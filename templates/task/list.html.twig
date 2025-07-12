@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello TaskSchedulerController!{% endblock %}
+
+{% block body %}
+    <div class="container mt-5">
+        <h2 class="mb-4">📅 {{ date }} tarihli görev listesi</h2>
+
+        {% if assignments is empty %}
+            <div class="alert alert-warning">Bugün için görev ataması yapılmadı.</div>
+        {% else %}
+            <table class="table table-bordered table-striped">
+                <thead class="table-dark">
+                <tr>
+                    <th scope="col">Görev</th>
+                    <th scope="col">Kullanıcı</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for assignment in assignments %}
+                    <tr>
+                        <td>{{ assignment.taskType.name }}</td>
+                        <td>{{ assignment.user.name }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        {% endif %}
+    </div>
+{% endblock %}

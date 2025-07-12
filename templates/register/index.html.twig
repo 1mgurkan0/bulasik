@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Kayıt Ol{% endblock %}
+
+{% block body %}
+    <div class="container mt-5">
+        <h2 class="mb-4">Kayıt Ol</h2>
+
+        {{ form_start(registerForm) }}
+
+        <div class="mb-3">
+            {{ form_label(registerForm.name) }}
+            {{ form_widget(registerForm.name, {'attr': {'class': 'form-control'}}) }}
+            {{ form_errors(registerForm.name) }}
+        </div>
+
+        <div class="mb-3">
+            {{ form_label(registerForm.plainPassword.first) }}
+            {{ form_widget(registerForm.plainPassword.first, {'attr': {'class': 'form-control'}}) }}
+            {{ form_errors(registerForm.plainPassword.first) }}
+        </div>
+
+        <div class="mb-3">
+            {{ form_label(registerForm.plainPassword.second) }}
+            {{ form_widget(registerForm.plainPassword.second, {'attr': {'class': 'form-control'}}) }}
+            {{ form_errors(registerForm.plainPassword.second) }}
+        </div>
+
+        <button type="submit" class="btn btn-primary">Kayıt Ol</button>
+
+        {{ form_end(registerForm) }}
+    </div>
+{% endblock %}
